@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
 
-  getPorjects: function() {
+  getProjects: function() {
     return axios.get("/api/projects");
   },
   saveBook: function(newProject) {
