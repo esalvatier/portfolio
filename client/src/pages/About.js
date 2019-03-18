@@ -12,7 +12,7 @@ function About() {
                             About
                         </div>
                         <div class="card-body">
-                            <img src={IMG_6405} class="float-left mr-3" alt="Mark Erik Salvatier" height="133" width="200"></img>
+                            <img src={IMG_6405} className="float-left mr-3 border rounded" alt="Mark Erik Salvatier" height="133" width="200"></img>
                             <p class="card-text">
                                 <p>My name is Mark Erik Salvatier, welcome to my handcrafted portfolio. It was a little furstrating at times to build, but rewarding as well in the end when I had it finished and done well. I'm looking forward to recreating it with Bootstrap which should be easier and more straightforward to do from what I've seen of it so far, though I imagine there'll be frustrations unique to Bootstrap too!</p>
                                 <p>I should tell you a little more about myself and what I enjoy doing outside of the boot camp. One of my favorite activities is reading, though in recent years I haven't found as much time for as I did when I was younger; primarily I enjoy Science Fiction novels,though Fantasy is good as well! Some of my favorite books were written by Frank Herbert, especially the entire Dune series. Related to that I also enjoy writing, the same types of stuff s Ilike to read; whodathunk? At the moment in fact I'm in the middle of editing, rewritings(parts), and adding to the second draft of a long form work I've been working for the last couple of years, it is simultaenousy frustrating and invigorating.</p>

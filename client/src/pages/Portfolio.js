@@ -18,12 +18,12 @@ class Portfolio extends Component {
             <Container>
                 <Row>
                     <Col size="md-12">
-                        <div className="card">
-                            <div className="card-header">
+                        <div className="card mt-2">
+                            <div className="card-header text-light bg-secondary">
                                 <h1>Portfolio</h1>
                                 <h4>Heroku apps may take a minute to load, please be patient</h4>
                             </div>
-                            <div className="card-body">
+                            <div className="card-body bg-dark">
                                 <Row>
                                     {this.state.projects.map(project => (
                                         <ProjectCard 

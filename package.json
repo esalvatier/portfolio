@@ -27,7 +27,8 @@
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "if-env": "^1.0.4",
-    "mongoose": "^5.4.15"
+    "mongoose": "^5.4.15",
+    "nodemailer": "^5.1.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
