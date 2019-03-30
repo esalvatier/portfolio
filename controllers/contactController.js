@@ -9,8 +9,8 @@ module.exports = {
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                  user: 'Mark.E.Salvatier@gmail.com',
-                  pass: 'YESYESYES'
+                  user: 'mark.e.salvatier@gmail.com',
+                  pass: 'notasecurepassword'
                 }
               });
                
@@ -19,15 +19,16 @@ module.exports = {
                 from: 'Mark.E.Salvatier@gmail.com',
                 to: "m.erik.salvatier@gmail.com",
                 subject: dbModel.reason,
-                text: `${dbModel.name} says: ${dbModel.content}/n Their email is: ${dbModel.from}`
+                html: `${dbModel.name} says: ${dbModel.content}/n Their email is: ${dbModel.from}`
               };
                
               transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
                   console.log(error);
-                  res.json(dbModels)
+                  res.status(404).end()
                 } else {
                   console.log('Email sent: ' + info.response);
+                  res.status(200).end()
                 }
               });
             })
