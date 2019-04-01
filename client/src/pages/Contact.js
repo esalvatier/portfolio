@@ -65,7 +65,7 @@ class Contact extends Component {
                         </Modal.Header>
 
                         <Modal.Body>
-                            {this.state.action === "resume" ? <RequestResume/> : this.state.action === "message" ? <SendMessage/> : ""}
+                            {this.state.action === "resume" ? <RequestResume/> : this.state.action === "message" ? <SendMessage/> : "Request Sent"}
                         </Modal.Body>
 
                         <Modal.Footer>

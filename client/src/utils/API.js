@@ -7,7 +7,10 @@ export default {
   saveProject: function(newProject) {
     return axios.post("/api/projects", newProject);
   },
-  submitForm: (data) => {
-    return axios.post("http://localhost:3000/api/contacts", data);
+  submitMsgForm: (data) => {
+    return axios.post("http://localhost:3000/api/contacts/message", data);
+  },
+  submitRsmForm: (data) => {
+    return axios.post("http://localhost:3000/api/contacts/resume", data);
   }
 };

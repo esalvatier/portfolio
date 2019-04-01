@@ -28,7 +28,7 @@ class SendMessage extends Component {
             content: this.state.content
         };
         
-        API.submitForm(formData)
+        API.submitMsgForm(formData)
         .then((res) => {
             if (res.status === 200) {
                 this.setState({redirect: true});
