@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import {Redirect} from "react-router-dom";
 import API from "../../utils/API";
@@ -41,56 +41,51 @@ class SendMessage extends Component {
             return <Redirect to="/contact" />
         }
         return (
-            <Card>
-                <Card.Header>
-                    Contact
-                </Card.Header>
-                <Card.Body>
-                    <Form.Row>
-                        <Form.Group md="6" controlId="reason">
-                            <Form.Label>
-                                Purpose for Contacting Me
-                            </Form.Label>
-                            <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
+            <Container>
+                <Form.Row>
+                    <Form.Group style={{width: "100%"}} controlId="reason">
+                        <Form.Label>
+                            Purpose for Contacting Me
+                        </Form.Label>
+                        <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
 
-                            </Form.Control>
-                        </Form.Group>
-                        <Form.Group md="6" controlId="name">
-                            <Form.Label>
-                                Your Name
-                            </Form.Label>
-                            <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
+                        </Form.Control>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group className="mr-1" controlId="name">
+                        <Form.Label>
+                            Your Name
+                        </Form.Label>
+                        <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
 
-                            </Form.Control>
-                        </Form.Group>
-                        <Form.Group md="6" controlId="from">
-                            <Form.Label>
-                                Your Email
-                            </Form.Label>
-                            <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="from">
+                        <Form.Label>
+                            Your Email
+                        </Form.Label>
+                        <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
 
-                            </Form.Control>
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group md="12" controlId="content">
-                            <Form.Label>
-                                Message
-                            </Form.Label>
-                            <Form.Control type="textarea" onChange={(event) => this.handleChange(event)}>
-
-                            </Form.Control>
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group>
-                            <Button variant="primary" type="submit" onClick={(event) => this.handleSubmit(event)}>
-                                Submit
-                            </Button>
-                        </Form.Group>
-                    </Form.Row>
-                </Card.Body>
-            </Card>
+                        </Form.Control>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group controlId="content" style={{width: "100%"}}>
+                        <Form.Label>
+                            Message
+                        </Form.Label>
+                        <Form.Control as="textarea" rows="3" onChange={(event) => this.handleChange(event)}/>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group>
+                        <Button variant="primary" type="submit" onClick={(event) => this.handleSubmit(event)}>
+                            Submit
+                        </Button>
+                    </Form.Group>
+                </Form.Row>
+            </Container>
         )
     }
 }

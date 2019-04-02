@@ -1,7 +1,5 @@
 import React, { Component}  from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import {Container, Row, Col} from "../components/Grid";
+import {Modal, Button, Card, Container, Col, Row} from "react-bootstrap";
 import {SendMessage, RequestResume} from "../components/Contact";
 
 class Contact extends Component {
@@ -35,27 +33,38 @@ class Contact extends Component {
 
     render() {
         return(
-            <Container>
+            <Container className="mt-5">
                 <Row>
-                    <Col size="md-12">
-                        <button 
-                            type="button" 
-                            className="btn btn-primary" 
-                            value="resume"
-                            name="Resume Request"
-                            onClick={this.handleShow}
-                        >
-                            Request Resume
-                        </button>
-                        <button 
-                            type="button" 
-                            className="btn btn-primary" 
-                            value="message"
-                            name="Your Message"
-                            onClick={this.handleShow}
-                        >
-                            Send me a Message
-                        </button>
+                    <Col md={{span:12}}>
+                        <Card>
+                            <Card.Header>
+                                Contact Types
+                            </Card.Header>
+                            <Card.Body>
+                                <Row>
+                                    <Col md={{span: 6, offset: 2}}>
+                                        <Button 
+                                            variant="primary" 
+                                            value="resume" 
+                                            name="Resume Request" 
+                                            onClick={this.handleShow}
+                                        >
+                                            Request Resume
+                                        </Button>
+                                    </Col>
+                                    <Col md={{span: 3}}>
+                                        <Button 
+                                            variant="primary" 
+                                            value="message" 
+                                            name="Your Message" 
+                                            onClick={this.handleShow}
+                                        >
+                                            Send me a Message
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row>
                 <Row>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Redirect} from "react-router-dom";
@@ -35,30 +35,25 @@ class RequestResume extends Component {
             return <Redirect to="/contact" />
         }
         return (
-            <Card>
-                <Card.Header>
-                    Resume Request
-                </Card.Header>
-                <Card.Body>
-                    <Form.Row>
-                        <Form.Group md="12" controlId="email">
-                            <Form.Label>
-                                Your Email
-                            </Form.Label>
-                            <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
+            <Container>
+                <Form.Row>
+                    <Form.Group style={{width: "75%"}} controlId="email">
+                        <Form.Label>
+                            Your Email
+                        </Form.Label>
+                        <Form.Control type="text" onChange={(event) => this.handleChange(event)}>
 
-                            </Form.Control>
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group>
-                            <Button variant="primary" type="submit" onClick={(event) => this.handleSubmit(event)}>
-                                Request Resume
-                            </Button>
-                        </Form.Group>
-                    </Form.Row>
-                </Card.Body>
-            </Card>
+                        </Form.Control>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group>
+                        <Button variant="primary" type="submit" onClick={(event) => this.handleSubmit(event)}>
+                            Request Resume
+                        </Button>
+                    </Form.Group>
+                </Form.Row>
+            </Container>
         )
     }
 }
