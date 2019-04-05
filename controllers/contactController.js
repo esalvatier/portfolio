@@ -19,7 +19,7 @@ module.exports = {
                 from: 'Mark.E.Salvatier@gmail.com',
                 to: "m.erik.salvatier@gmail.com",
                 subject: dbModel.reason,
-                html: `${dbModel.name} says: ${dbModel.content}/n Their email is: ${dbModel.from}`
+                text: `${dbModel.name} said: ${dbModel.content}\nTheir email is: ${dbModel.from}`
               };
                
               transporter.sendMail(mailOptions, function(error, info){
