@@ -8,9 +8,9 @@ export default {
     return axios.post("/api/projects", newProject);
   },
   submitMsgForm: (data) => {
-    return axios.post("http://localhost:3000/api/contacts/message", data);
+    return axios.post("/api/contacts/message", data);
   },
   submitRsmForm: (data) => {
-    return axios.post("http://localhost:3000/api/contacts/resume", data);
+    return axios.post("/api/contacts/resume", data);
   }
 };
