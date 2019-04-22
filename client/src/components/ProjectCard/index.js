@@ -7,7 +7,7 @@ function ProjectCard(props) {
     const alt = props.alt.length > 0 ? props.alt : props.title
 
     return (
-        <a className="img-container mx-5 border rounded" href={props.link}>
+        <a className="img-container mx-auto border rounded" href={props.link}>
             <img src={imgSrc} className="img-fluid" alt={alt} height="200" width="300"/>
             <div className="label border rounded text-light bg-secondary text-center">{props.title}</div>
         </a>
