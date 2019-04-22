@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Container, Row, Col} from "../components/Grid";
-import ProjectCard from "../components/ProjectCard"
+import ProjectCard from "../components/ProjectCard";
 import API from "../utils/API";
 
 class Portfolio extends Component {
@@ -30,7 +30,7 @@ class Portfolio extends Component {
                                             key={project._id}
                                             title={project.title}
                                             link={project.link}
-                                            img={project.imageLink}
+                                            img= {project.imageLink}
                                             alt={project.alt}
                                         />
                                     ))}
