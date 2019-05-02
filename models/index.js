@@ -1,4 +1,6 @@
 module.exports = {
     Project: require("./project"),
-    Message: require("./message")
+    Message: require("./message"),
+    Character: require("./characters"),
+    Enemy: require("./enemies")
 };
