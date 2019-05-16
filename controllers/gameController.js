@@ -62,23 +62,45 @@ module.exports = {
         })
     },
 
-    getEns: function(req, res) {
-        const {max, min} = req.body;
-        const num = Math.floor(Math.random() * (max - min + 1)) + min;
+    newEnv: function(req, res) {
+        const {name, img, type, connections} = req.body;
 
-        let enemies = new Array(num).fill();
+        newEnviro = {
+            name: name,
+            imgSrc: img,
+            type: type,
+            validConnects: connections
+        }
 
-        db.Enemy
-        .count().then(function (err, count) {
-            const skip = Math.floor(Math.random() * count);
-            db.Enemy.findOne()
-            .skip(skip)
-            .then( function(err, type) {
-                for (let i = 0; i < num; i++) {
-                    enemies[i] = type;
-                }
-                res.json(enemies);
-            })
+        db.Environment
+        .create(newEnviro)
+        .then(dbRes => {
+            res.json(dbRes)
         })
+    },
+
+    getEnv: function(req, res) {
+        db.Environment
+        .find()
+        .then(dbRes => {
+            res.json(dbRes)
+        })
+    },
+
+
+    getEns: function(req, res) {
+        const num = Math.floor(Math.random() * (8)) + 1;
+        let enemies = new Array(num).fill();
+            db.Enemy
+            .countDocuments().then(function (count, err) {
+                db.Enemy.find()
+                .then( dbRes => {
+                    for (let i = 0; i < num; i++) {
+                        const skip = Math.floor(Math.random() * count);
+                        enemies[i] = dbRes[skip];
+                    }
+                    res.json(enemies);
+                })
+            })
     }
 }

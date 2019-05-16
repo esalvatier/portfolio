@@ -8,6 +8,6 @@ const environmentSchema = new Schema({
     validConnects: {type: String, required: true}
 });
 
-const environment = mongoose.model("Environment", environmentSchema);
+const Environment = mongoose.model("Environment", environmentSchema);
 
 module.exports = Environment;

@@ -5,9 +5,13 @@ router.route("/newChar")
     .post(gameController.newChar);
 router.route("/newEn")
     .post(gameController.newEn);
-router.route("/getChar")
+router.route("/newEnv")
+    .post(gameController.newEnv);
+router.route("/env")
+    .get(gameController.getEnv);
+router.route("/char")
     .get(gameController.getChar);
-router.route("/getAllChars")
+router.route("/allChars")
     .get(gameController.getAllChars);
 router.route("/enemies")
     .get(gameController.getEns);

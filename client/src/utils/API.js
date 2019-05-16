@@ -12,5 +12,14 @@ export default {
   },
   submitRsmForm: (data) => {
     return axios.post("/api/contacts/resume", data);
+  },
+  getChars: function() {
+    return axios.get("/api/game/allChars");
+  },
+  getEnemies: function() {
+    return axios.get("/api/game/enemies", {body: {min: 1, max: 8}});
+  },
+  getEnv: function() {
+    return axios.get("/api/game/env");
   }
 };
