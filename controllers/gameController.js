@@ -80,10 +80,16 @@ module.exports = {
     },
 
     getEnv: function(req, res) {
+        const type = req.body.type
+        const connect = (type === "any" ? "t" : type)
         db.Environment
-        .find()
-        .then(dbRes => {
-            res.json(dbRes)
+        .countDocuments().then(function (count, err) {
+            let skip = Math.floor(Math.random() * (count - 1));
+
+            db.Environment
+            .find({validConnects: {$regex: connect}}, {}, {limit: 1, skip: skip})
+            .then(dbRes => {
+                res.json(dbRes)})
         })
     },
 

@@ -17,9 +17,10 @@ export default {
     return axios.get("/api/game/allChars");
   },
   getEnemies: function() {
-    return axios.get("/api/game/enemies", {body: {min: 1, max: 8}});
+    return axios.get("/api/game/enemies");
   },
-  getEnv: function() {
-    return axios.get("/api/game/env");
+  getEnv: function(current) {
+    console.log(current)
+    return axios.put("/api/game/env", current);
   }
 };

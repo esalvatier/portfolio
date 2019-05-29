@@ -8,7 +8,7 @@ router.route("/newEn")
 router.route("/newEnv")
     .post(gameController.newEnv);
 router.route("/env")
-    .get(gameController.getEnv);
+    .put(gameController.getEnv);
 router.route("/char")
     .get(gameController.getChar);
 router.route("/allChars")

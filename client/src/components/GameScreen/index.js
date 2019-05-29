@@ -1,9 +1,10 @@
 import React from "react";
 import {Container, Row, Col} from "react-bootstrap";
 import CharCard from "../CharCard";
+import EnemyCard from "../EnemyCard";
 
 function GameScreen(props) {
-    const {character, enemies} = props;
+    const {character, enemies, atkResolve} = props;
     return(
         <Container>
             <Row>
@@ -15,10 +16,13 @@ function GameScreen(props) {
                 </Col>
                 <Col size="md-9">
                     {enemies.map((enemy, index) => (
-                        <CharCard
+                        <EnemyCard
                             key={index}
-                            fullChar={enemy}
+                            enemy={enemy}
+                            char={character}
+                            id={index}
                             state={"false"}
+                            clickMethod={atkResolve}
                         />
                     ))}
                 </Col>
