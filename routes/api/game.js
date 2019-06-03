@@ -17,5 +17,7 @@ router.route("/enemies")
     .get(gameController.getEns);
 router.route("/update")
     .put(gameController.updateChar);
+router.route("/endGame")
+    .put(gameController.endGame);
 
 module.exports = router;

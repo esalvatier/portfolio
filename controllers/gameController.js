@@ -85,11 +85,19 @@ module.exports = {
         db.Environment
         .countDocuments().then(function (count, err) {
             let skip = Math.floor(Math.random() * (count - 1));
-
             db.Environment
             .find({validConnects: {$regex: connect}}, {}, {limit: 1, skip: skip})
             .then(dbRes => {
-                res.json(dbRes)})
+                if (dbRes.length > 0) {
+                    res.json(dbRes)
+                } else {
+                    db.Environment
+                    .findOne()
+                    .then(dbRes => {
+                        res.json([dbRes])
+                    })
+                }
+            })
         })
     },
 
@@ -97,16 +105,25 @@ module.exports = {
     getEns: function(req, res) {
         const num = Math.floor(Math.random() * (8)) + 1;
         let enemies = new Array(num).fill();
-            db.Enemy
-            .countDocuments().then(function (count, err) {
-                db.Enemy.find()
-                .then( dbRes => {
-                    for (let i = 0; i < num; i++) {
-                        const skip = Math.floor(Math.random() * count);
-                        enemies[i] = dbRes[skip];
-                    }
-                    res.json(enemies);
-                })
+        db.Enemy
+        .countDocuments().then(function (count, err) {
+            db.Enemy.find()
+            .then( dbRes => {
+                for (let i = 0; i < num; i++) {
+                    const skip = Math.floor(Math.random() * count);
+                    enemies[i] = dbRes[skip];
+                }
+                res.json(enemies);
             })
+        })
+    },
+
+    endGame: function(req, res) {
+        const state = req.body.loss ? "l" : "w"
+        db.Environment
+        .findOne({type: state})
+        .then(dbRes => {
+            res.json(dbRes)
+        })
     }
 }

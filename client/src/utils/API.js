@@ -20,7 +20,9 @@ export default {
     return axios.get("/api/game/enemies");
   },
   getEnv: function(current) {
-    console.log(current)
     return axios.put("/api/game/env", current);
+  },
+  endGame: function(winOrLose) {
+    return axios.put("/api/game/endGame", winOrLose);
   }
 };

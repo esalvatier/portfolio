@@ -12,7 +12,7 @@ function EnemyCard(props) {
         <Col size="md-3">
             <Card>
                 <Card.Header>
-                    <img src={imgSrc} alt={name} className="float-left mr-3 border rounded" height="175" width="auto"></img>
+                    <img src={imgSrc} alt={name} className="float-center border rounded" height="175" width="auto"></img>
                 </Card.Header>
                 <Card.Body>
                     <p><b>Type: </b>{name}</p>
