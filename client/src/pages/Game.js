@@ -19,9 +19,17 @@ class Game extends Component{
     }
 
     getEns() {
-        API.getEnemies().then(dbRes => {this.setState({
-            enemies: dbRes.data
-        })})
+        API.getEnemies().then(dbRes => {
+            const mod = this.state.scenesPast > 0 ? this.state.scenesPast + 1 : 1
+            const enemyList = dbRes.data.map( function(each) {
+                each.baseHealth = each.baseHealth * (mod + Math.ceil(Math.random(1)))
+                each.baseAtk = each.baseAtk * mod
+                return each
+            })
+            this.setState({
+                enemies: enemyList
+            })
+        })
     }
 
     selectChar(char) {
@@ -43,7 +51,6 @@ class Game extends Component{
     }
 
     lostOrWon(character) {
-        console.log(character)
         let state;
         if (character.health <= 0) {
             state = true;
@@ -54,7 +61,6 @@ class Game extends Component{
         }
         if (state !=="cont") {
             API.endGame({loss: state}).then(dbRes => {
-                console.log(dbRes.data)
                 this.setState({
                     environment: dbRes.data,
                     enemies: []
@@ -70,7 +76,7 @@ class Game extends Component{
             char.health = char.health - enemyList[index].baseAtk
         } else {
             enemyList.splice(index, 1)
-            char.attack += 1
+            char.attack += Math.ceil(Math.random(1))
             if (enemyList.length < 1) {
                 this.getEns();
                 this.getEnv();
